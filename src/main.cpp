@@ -50,7 +50,7 @@ void relayOutput(bool condition)
 void loop()
 {
   //Measurement
-  delay(2000);
+  delay(1000);
   // Get temperature and humidity event and print its value.
   sensors_event_t event;
 
@@ -86,9 +86,6 @@ void loop()
   lcd.print("%");
 
   bool tempCondition = temperature >= 24;
-  bool humidityCondition = relative_humidity <= 50;
 
-  bool condition = tempCondition || humidityCondition;
-
-  relayOutput(condition);
+  relayOutput(tempCondition);
 };
